@@ -1,0 +1,99 @@
+﻿<br />
+<!--Restaurant info-->
+<section class="row">
+    <div class="col-sm-12">
+        <header>
+            <h2 id="detail-title">{{vm.restaurant.name}}</h2>
+        </header>
+    </div>
+
+    <div class="col-sm-4">
+        <img data-ng-src="{{vm.restaurant.imageUrl}}" class="img-thumbnail img-responsive" alt="Restaurant image" />
+    </div>
+    <div class="col-sm-4">
+        <h3 class="detail-subtitle"><span class="subtitle-underline"><i class="fa fa-info-circle"></i>&nbsp;Information&nbsp;</span></h3>
+        <dl class="detail-information">
+            <dt>Location:</dt>
+            <dd>{{vm.restaurant.address}}</dd>
+            <dt>Categories</dt>
+            <dd>
+                <span data-ng-repeat="category in vm.restaurant.categories">{{category}}{{!$last ? ', ' : ' '}}</span>
+            </dd>
+            <dt>Rating</dt>
+            <dd><rating ng-model="vm.restaurant.stars" max="vm.max" readonly="vm.isReadonly"></rating></dd>
+        </dl>
+    </div>
+    <div class="col-sm-4">
+        <h3 class="detail-subtitle"><span class="subtitle-underline"><i></i><i class="fa fa-dot-circle-o"></i>&nbsp;Features&nbsp;</span></h3>
+        <!--List of top features-->
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isAcceptCreditCards"><i class="fa fa-caret-right"></i>&nbsp;Accept Credit Cards
+        </p>
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isGoodForKid"><i class="fa fa-caret-right"></i>&nbsp;Good for kids
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isGoodForKidisOutdoorService"><i class="fa fa-caret-right"></i>&nbsp;Outdoor service
+        </p>
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isTakeReservation"><i class="fa fa-caret-right"></i>&nbsp;Take Reservation
+        </p>
+
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isGoodForGroup">
+            <i class="fa fa-caret-right"></i>&nbsp;Good for group activities
+        </p>
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isDeliveryAvailable">
+            <i class="fa fa-caret-right"></i>&nbsp;Delivery
+        </p>
+        <p data-ng-if="vm.restaurant.restaurantAttribute.isHasTV">
+            <i class="fa fa-caret-right"></i>&nbsp;TV
+        </p>
+        <p data-ng-if="vm.restaurant.restaurantAttribute.attire">
+            <i class="fa fa-caret-right"></i>&nbsp;Attire: {{vm.restaurant.restaurantAttribute.attire}}
+        </p>
+    </div>
+</section>
+<!--comments-->
+<section>
+    <div class="row">
+        <div class="col-sm-12">
+            <header>
+                <h3 class="detail-subtitle">Comments <i class="fa fa-comment-o"></i> ({{vm.restaurant.reviews.length}})</h3>
+            </header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="error-notice" data-ng-repeat="comment in vm.restaurant.reviews | filter: vm.paginate ">
+                <div class="oaerror danger" data-ng-class="{danger: comment.stars <3, warning: comment.stars ==3, success: comment.stars > 3}">
+                    <span class="pull-right help-block text-muted"><i class="fa fa-calendar"></i>&nbsp;{{comment.createdOn | date}}</span><br />
+                    <i class="fa fa-quote-left"></i>&nbsp;{{comment.text}}&nbsp;<i class="fa fa-quote-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" data-ng-if="vm.restaurant.reviews.length >5">
+        <div class="col-sm-12">
+            <pagination total-items="vm.restaurant.reviews.length" ng-model="vm.currentPage"
+                        max-size="5" boundary-links="true"
+                        items-per-page="vm.pageSize" class="pagination-sm">
+            </pagination>
+        </div>
+    </div>
+</section>
+<br/>
+<!--Add comment section-->
+<div class="row">
+    <div class="col-sm-12 animate-if" data-ng-if="!vm.isAddComment">
+        <button type="button" class="btn btn-primary" data-ng-click="vm.addNewComment()">
+            <i class="fa fa-plus"></i>&nbsp;Add New Comment
+        </button>
+    </div>
+    <div class="col-sm-12 animate-if" data-ng-if="vm.isAddComment">
+        <div class="form-group">
+            <label class="control-label">Comment</label>
+            <textarea class="form-control" placeholder="Enter your comment here" data-ng-model="vm.comment.text"></textarea>
+        </div>
+        <button class="btn btn-danger" data-ng-click="vm.cancelComment()">
+            <i class="fa fa-ban"></i>&nbsp;Cancel
+        </button>
+        <button class="btn btn-success" data-ng-click="vm.saveComment(vm.restaurant)" data-ng-disabled="vm.comment.text.length < 3">
+            <i class="fa fa-save"></i>&nbsp;Save
+        </button>
+    </div>
+</div>

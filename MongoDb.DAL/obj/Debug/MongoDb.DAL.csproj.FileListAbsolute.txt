@@ -1,0 +1,10 @@
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\obj\Debug\MongoDb.DAL.csprojResolveAssemblyReference.cache
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDb.DAL.dll.config
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDb.DAL.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDb.DAL.pdb
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDB.Bson.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDB.Driver.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDB.Bson.xml
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\bin\Debug\MongoDB.Driver.xml
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\obj\Debug\MongoDb.DAL.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.DAL\obj\Debug\MongoDb.DAL.pdb

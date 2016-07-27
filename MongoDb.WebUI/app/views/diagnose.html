@@ -1,0 +1,13 @@
+﻿
+<section class="jumbotron" id="diagnose-message" style="border: 1px solid #ccc;">
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <h2 class="animate-if" data-ng-class="{'server-offline': vm.isServerOffline}">{{vm.statusMessage}}</h2>
+            <br/>
+            <p class="text-center animate-if" data-ng-if="!vm.isServerOffline"><i class="fa fa-refresh fa-5x fa-spin text-primary"></i>
+            </p>
+            <p class="text-center animate-if" data-ng-if="vm.isServerOffline"><i class="fa fa-exclamation-triangle fa-5x server-offline"></i></p>
+        </div>
+    </div>
+</section>
+

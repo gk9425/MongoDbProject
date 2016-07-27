@@ -1,0 +1,11 @@
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDb.Test.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDb.Test.pdb
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\obj\Debug\MongoDb.Test.csprojResolveAssemblyReference.cache
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\obj\Debug\MongoDb.Test.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\obj\Debug\MongoDb.Test.pdb
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDb.DAL.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDB.Driver.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDB.Bson.dll
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDb.DAL.pdb
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDB.Driver.xml
+D:\MongoDbProject\MongoDbProject\App\MongoDbProject\MongoDb.Test\bin\Debug\MongoDB.Bson.xml

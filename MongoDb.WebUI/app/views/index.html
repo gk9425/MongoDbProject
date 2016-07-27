@@ -1,0 +1,70 @@
+﻿<section class="jumbotron" data-ng-if="vm.restaurants.length==0">
+    <h1 class="text-center" id="searchMessage">Search for Restaurants</h1>
+    <br /><br />
+    <div class="row">
+        <form>
+            <div class="col-sm-offset-2 col-sm-8 col-sm-offset-2">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-lg" placeholder="Search criteria..." data-ng-model="vm.searchText" data-ng-keypress="vm.keyPress($event)" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-lg" type="button" data-ng-click="vm.searchRestaurants()" data-ng-disabled="vm.searchText.length <=0">
+                                <i class="fa fa-search fa-lg"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!--This section display the result of the search -->
+<section data-ng-if="vm.restaurants.length > 0">
+    <br /><br />
+    <div class="row">
+        <nav class="navbar navbar-custom">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Found&nbsp;<span class="label label-primary" data-ng-bind="vm.totalItems"></span>&nbsp;{{vm.totalItems >1 ? 'Restaurants' : 'Restaurant'}}</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <form class="navbar-form navbar-right search-form" role="search">
+                        <input type="text" class="form-control" placeholder="Search criteria" data-ng-model="vm.searchText" data-ng-keypress="vm.keyPress($event)" />
+                        <button type="button" class="btn btn-default" data-ng-click="vm.searchRestaurants()" data-ng-disabled="vm.searchText.length <=0">
+                            <i class="fa fa-search text-primary"></i>&nbsp;Search
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row">
+        <article class="col-sm-12 searchresult" data-ng-repeat="restaurant in vm.restaurants | orderBy: '-rating'">
+            <h3>
+                <a ui-sref="details({restaurandId: restaurant.id})">{{restaurant.name}}</a>
+            </h3>
+            <p>
+                <i class="fa fa-map-marker fa-2x text-danger"></i>&nbsp;{{restaurant.address}}
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="font-weight">Rating:</span>&nbsp;<rating ng-model="restaurant.rating" max="vm.max" readonly="vm.isReadonly"></rating>
+            </p>
+            <p>
+                <i class="fa fa-list-alt fa-2x text-info"></i>&nbsp;<span class="font-weight">Category:</span>&nbsp;<span data-ng-repeat="category in restaurant.categories">{{category }}&nbsp;{{!$last ? '|' : ''}}</span>
+            </p>
+        </article>
+    </div>
+    <!--Pagination control-->
+    <div class="row">
+        <div class="col-sm-12">
+            <div data-pagination="" max-size="vm.maxSize" data-total-items="vm.totalItems" data-ng-change="vm.pageChanged()" data-ng-model="vm.currentPage"
+                 data-items-per-page="vm.itemPerPage" class="pagination" boundary-links="true" data-num-pages="vm.numPages" data-rotate="false"></div>
+        </div>
+    </div>
+</section>
+
